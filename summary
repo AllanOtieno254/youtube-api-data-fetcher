@@ -1,0 +1,14 @@
+| Feature               | `/search`                                 | `/videos`                                       |
+| --------------------- | ----------------------------------------- | ----------------------------------------------- |
+| Purpose               | Find videos                               | Get info on specific video(s)                   |
+| Takes `channelId`?    | ✅ Yes                                     | ❌ No                                         |
+| Takes `id`?           | ❌ Not as input                            | ✅ Yes (video ID)                             |
+| Parts you can request | `snippet`, `id` (for search result items) | `snippet`, `contentDetails`, `statistics`, etc. |
+| Best for              | Getting a list of video IDs               | Getting rich metadata for known videos          |
+
+
+| Feature                       | `/search`                        | `/videos`                                                 |
+| ----------------------------- | -------------------------------- | --------------------------------------------------------- |
+| Allowed `part` values         | `snippet` only                   | `snippet`, `contentDetails`, `statistics`, `status`, etc. |
+| Retrieves list of videos?     | ✅ Yes (you get video IDs)        | ❌ No (you must provide video IDs)                         |
+| Retrieves detailed video info | ❌ No (only titles, thumbs, etc.) | ✅ Yes                                                     |
