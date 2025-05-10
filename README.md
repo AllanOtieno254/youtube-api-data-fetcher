@@ -195,117 +195,65 @@ Example 3 returns a video resource that includes two parts but excludes kind and
 Example 4 returns a video resource that includes two parts but excludes kind and etag as well as some nested properties in the resource's snippet object.
 
 
-🔑 Setup and Installation
-Step 1: Clone the Repository
+# YouTube Data API - Videos Resource Examples
 
-git clone https://github.com/yourusername/youtube-api-project.git
+This document provides examples of how to use the `part` and `fields` parameters in the YouTube Data API to limit the amount of data returned in a response. This is useful for improving performance by requesting only the data your application needs.
 
-cd youtube-api-project
+## Example 1
 
-Step 2: Create Virtual Environment (Optional)
+This example retrieves a video resource and specifies multiple parts to include in the response.
 
-python -m venv venv
+### Request URL
 
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+URL: https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY
+     &part=snippet,contentDetails,statistics,status
 
-Step 3: Install Requirements
+Description: This example retrieves a video resource and identifies several
+             resource parts that should be included in the API response.
 
-pip install -r requirements.txt
+API response:
 
-Step 4: Get Your YouTube Data API Key
-
-Go to Google Developers Console
-
-Create a project
-
-Enable YouTube Data API v3
-
-Go to Credentials → Create API Key
-
-Copy and paste it into your script
-
-🔧 Code Explanation
-
-📂 Import Libraries
-
-import pandas as pd
-
-import requests
-
-import time
-
-🔐 Set Your API Key and Channel ID
-
-API_KEY = "YOUR_API_KEY"
-
-CHANEL_ID = "YOUR_CHANNEL_ID"
-
-🔁 Define a Function to Fetch Video Statistics
-
-def get_video_details(video_id):
-    ...
-    return view_count, like_count, comment_count
-    
-🔁 Define Main Function to Get Videos
-
-
-def get_videos(df):
-    ...
-    return df
-    
-✅ Initialize and Run
-
-df = pd.DataFrame(columns=[...])
-
-df = get_videos(df)
-
-print(df)
-
-🧠 How Pagination Works
-
-The YouTube API returns a limited number of results per page. To get all results, you need to use the nextPageToken value returned in each response. You can implement this inside a while loop or recursive function.
-
-To Do: Implement full pagination to collect videos beyond 50 results.
-
-
-
-This is especially useful for:
-
-- Content creators who want analytics for their videos.
-- Researchers collecting video metadata.
-- Data analysts building dashboards or models based on YouTube data.
-- Students learning how to work with real APIs and pandas in Python.
-
----
-
-## 🚀 Features
-
-- 🔌 Connects to YouTube Data API v3
-- 📽️ Extracts all videos from a channel
-- 📊 Collects metadata: title, publish date, view count, like count, and comment count
-- 🧹 Saves data into a clean `pandas` DataFrame
-- ⏱️ Can be extended to include pagination, scheduling, or database export
-
----
-
-## 🛠️ Tech Stack
-
-- **Python 3.x**
-- **Google YouTube Data API v3**
-- **pandas**
-- **requests**
-- (Optional) Jupyter or Google Colab for running notebooks
-
----
-
-## 📁 Project Structure
-
-```plaintext
-youtube-api-project/
-│
-├── README.md                  # Project documentation
-├── api_fetch.ipynb            # Colab notebook with all code
-├── credentials.txt (ignore)   # API key (should be in .gitignore)
-├── requirements.txt           # Python dependencies
-└── outputs/
-    └── youtube_data.csv       # Optional: output file if exported
+{ 
+ "kind": "youtube#videoListResponse",
+ "etag": "\"UCBpFjp2h75_b92t44sqraUcyu0/sDAlsG9NGKfr6v5AlPZKSEZdtqA\"",
+ "videos": [
+  {
+   "id": "7lCDEYXw3mM",
+   "kind": "youtube#video",
+   "etag": "\"UCBpFjp2h75_b92t44sqraUcyu0/iYynQR8AtacsFUwWmrVaw4Smb_Q\"",
+   "snippet": { 
+    "publishedAt": "2012-06-20T22:45:24.000Z",
+    "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+    "title": "Google I/O 101: Q&A On Using Google APIs",
+    "description": "Antonio Fuentes speaks to us and takes questions on working with Google APIs and OAuth 2.0.",
+    "thumbnails": {
+     "default": {
+      "url": "https://i.ytimg.com/vi/7lCDEYXw3mM/default.jpg"
+     },
+     "medium": {
+      "url": "https://i.ytimg.com/vi/7lCDEYXw3mM/mqdefault.jpg"
+     },
+     "high": {
+      "url": "https://i.ytimg.com/vi/7lCDEYXw3mM/hqdefault.jpg"
+     }
+    },
+    "categoryId": "28"
+   },
+   "contentDetails": {
+    "duration": "PT15M51S",
+    "aspectRatio": "RATIO_16_9"
+   },
+   "statistics": {
+    "viewCount": "3057",
+    "likeCount": "25",
+    "dislikeCount": "0",
+    "favoriteCount": "17",
+    "commentCount": "12"
+   },
+   "status": {
+    "uploadStatus": "STATUS_PROCESSED",
+    "privacyStatus": "PRIVACY_PUBLIC"
+   }
+  }
+ ]
+}
