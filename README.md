@@ -215,7 +215,7 @@ This example retrieves a video resource and identifies several resource parts th
 
 ### API Response
 
-```json
+
 { 
   "kind": "youtube#videoListResponse",
   "etag": "\"UCBpFjp2h75_b92t44sqraUcyu0/sDAlsG9NGKfr6v5AlPZKSEZdtqA\"",
@@ -260,3 +260,6 @@ This example retrieves a video resource and identifies several resource parts th
     }
   ]
 }
+
+
+
