@@ -1,5 +1,7 @@
 # YouTube Channel Analytics and Data Extraction via YouTube Data API
 
+## youtube api documentation link: https://developers.google.com/youtube/v3/getting-started
+
 ## 📌 Project Overview
 
 This project is designed to **fetch, process, and analyze data** from a specified **YouTube channel** using the [YouTube Data API v3](https://developers.google.com/youtube/v3). It extracts vital video statistics such as video IDs, titles, publication dates, view counts, like counts, and comment counts. The project is developed using Python and structured to be beginner-friendly, modular, and extensible.
