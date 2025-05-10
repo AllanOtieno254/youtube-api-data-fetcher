@@ -261,7 +261,7 @@ This example retrieves a video resource and identifies several resource parts th
   ]
 }
 
-
+```json
 ## Example 2
 
 This example returns a video resource that includes two parts as well as kind and etag properties.
