@@ -261,7 +261,7 @@ This example retrieves a video resource and identifies several resource parts th
   ]
 }
 
-```json
+
 ## Example 2
 
 This example returns a video resource that includes two parts as well as kind and etag properties.
@@ -316,3 +316,94 @@ This example modifies the part parameter value so that the contentDetails and st
   ]
 }
 
+
+
+## Example 3
+
+This example returns a video resource that includes two parts but excludes kind and etag properties using the fields parameter.
+
+### Request URL
+
+URL:[[ https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY
+     &part=snippet,contentDetails,statistics,status](https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY
+     &part=snippet,statistics)](https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY&part=snippet,statistics&fields=items(id,snippet,statistics)
+)
+
+
+### Description
+
+This example adds the fields parameter to remove all kind and etag properties from the API response.
+
+### API Response
+
+{ 
+  "videos": [
+    {
+      "id": "7lCDEYXw3mM",
+      "snippet": { 
+        "publishedAt": "2012-06-20T22:45:24.000Z",
+        "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+        "title": "Google I/O 101: Q&A On Using Google APIs",
+        "description": "Antonio Fuentes speaks to us and takes questions on working with Google APIs and OAuth 2.0.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/7lCDEYXw3mM/default.jpg"
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/7lCDEYXw3mM/mqdefault.jpg"
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/7lCDEYXw3mM/hqdefault.jpg"
+          }
+        },
+        "categoryId": "28"
+      },
+      "statistics": {
+        "viewCount": "3057",
+        "likeCount": "25",
+        "dislikeCount": "0",
+        "favoriteCount": "17",
+        "commentCount": "12"
+      }
+    }
+  ]
+}
+
+## Example 4
+
+Returns a video resource that includes two parts but excludes kind and etag as well as some nested properties in the resource's snippet object.
+
+### Request URL
+
+URL:[[[ https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY
+     &part=snippet,contentDetails,statistics,status](https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY
+     &part=snippet,statistics)](https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY&part=snippet,statistics&fields=items(id,snippet,statistics)
+)](https://www.googleapis.com/youtube/v3/videos?id=7lCDEYXw3mM&key=YOUR_API_KEY&fields=items(id,snippet(channelId,title,categoryId),statistics)&part=snippet,statistics
+)
+
+
+### Description
+
+This example modifies the fields parameter from Example 3 so that each video resource’s snippet object only includes the channelId, title, and categoryId properties.
+
+### API Response
+
+{ 
+  "videos": [
+    {
+      "id": "7lCDEYXw3mM",
+      "snippet": { 
+        "channelId": "UC_x5XG1OV2P6uZZ5FSM9Ttw",
+        "title": "Google I/O 101: Q&A On Using Google APIs",
+        "categoryId": "28"
+      },
+      "statistics": {
+        "viewCount": "3057",
+        "likeCount": "25",
+        "dislikeCount": "0",
+        "favoriteCount": "17",
+        "commentCount": "12"
+      }
+    }
+  ]
+}
