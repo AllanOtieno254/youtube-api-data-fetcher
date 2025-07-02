@@ -15,7 +15,7 @@ This project is designed to **fetch, process, and analyze data** from a specifie
 ## bookmark_border
 
 ## Introduction
-This document is intended for developers who want to write applications that interact with YouTube. It explains basic concepts of YouTube and of the API itself. It also provides an overview of the different functions that the API supports.
+This document is intended for developers who want to write applications that interact with YouTube. It explains basic concepts of  YouTube and of the API itself. It also provides an overview of the different functions that the API supports.
 
 ## Before you start
 
